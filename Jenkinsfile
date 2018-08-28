@@ -6,7 +6,7 @@ node {
   }
 
  stage('Build') {
-    bat 'mvn clean package'
+    sh 'mvn -B -V -U -e clean package'
   }
 
   stage('Archive') {
