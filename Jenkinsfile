@@ -11,10 +11,15 @@ node {
 
   stage('Archive') {
     junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
-  ([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: '**/target/**/checkstyle*.xml'])
-  
   }
  
+ stage('CAT') {
+
+    step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: '**/target/checkstyle-result.xml'])
+
+    step([$class: 'hudson.plugins.pmd.PmdPublisher', checkstyle: '**/target/pmd.xml'])
+
+}
 
  
 }
