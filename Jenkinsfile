@@ -11,7 +11,10 @@ node {
 
   stage('Archive') {
     junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
+  ([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: '**/target/**/checkstyle*.xml'])
+  
   }
+ 
 
  
 }
