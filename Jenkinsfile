@@ -15,8 +15,10 @@ node {
  
  stage('PMD') {
 
+  //line written bellow works perfect. I forgot to install pmd plugins.
    // step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: '**/target/checkstyle-result.xml'])
    //   step([$class: 'hudson.plugins.pmd.PmdPublisher', checkstyle: '**/target/pmd.xml'])
+ 
   
   step([$class: 'CheckStylePublisher',
                       canRunOnFailed: true,
