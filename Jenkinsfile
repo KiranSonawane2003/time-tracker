@@ -9,11 +9,34 @@ node {
     sh 'mvn -B -V -U -e clean package'
   }
 
-  stage('Archive') {
-    junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
-  }
+ // stage('Archive') {
+ //   junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
+ // }
  
+ stage ('Artifact'){
+    
+  step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+  step([$class: 'JunitResultArchiver', testResult: '**/target/surefilre-reports/TEST-*.xml'])
+ }
+ 
+ 
+ stage('PMD') {
 
+  //line written bellow works perfect. I forgot to install pmd plugins.
+   // step([$class: 'hudson.plugins.checkstyle.CheckStylePublisher', checkstyle: '**/target/checkstyle-result.xml'])
+   //   step([$class: 'hudson.plugins.pmd.PmdPublisher', checkstyle: '**/target/pmd.xml'])
+ 
+  
+  step([$class: 'CheckStylePublisher',
+                      canRunOnFailed: true,
+                      defaultEncoding: '',
+                      healthy: '100',
+                      pattern: '**/target/checkstyle-result.xml',
+                      unHealthy: '10',
+                      useStableBuildAsReference: true
+                    ])
+
+}
 
  
 }
