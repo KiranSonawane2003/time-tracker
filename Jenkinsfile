@@ -8,12 +8,6 @@ node {
  stage('Build') {
     sh 'mvn -B -V -U -e clean package'
   }
-
-  stage('Archive') {
-    archiveArtifacts '**/target/*.jar'
-
-   //junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
-  }
  
 
  
@@ -36,5 +30,16 @@ node {
 
 }
 
+
+ 
+  stage('Archive') {
+    archiveArtifacts '**/target/*.jar'
+    sh echo 'Hello World'
+   //junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
+  }
+
+ 
+ 
+ 
  
 }
