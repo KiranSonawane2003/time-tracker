@@ -34,7 +34,7 @@ node {
  
   stage('Archive') {
     archiveArtifacts '**/target/*.jar'
-    sh echo 'Hello World'
+    echo 'Hello World'
    //junit allowEmptyResults: true, testResults: '**/target/**/TEST*.xml'
   }
 
