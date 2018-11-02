@@ -7,6 +7,17 @@
         <artifactId>time-tracker-parent</artifactId>
         <version>0.5.0-SNAPSHOT</version>
     </parent>
+         <distributionManagement>
+                  <repository>
+                           <id>packagecloud-examplecorp</id>
+                           <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+                  </repository>
+                  <snapshotRepository>
+                           <id>packagecloud-examplecorp</id>
+                           <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+                  </snapshotRepository>
+         </distributionManagement> 
+
 
     <artifactId>time-tracker-web</artifactId>
     <packaging>war</packaging>
