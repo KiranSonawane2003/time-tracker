@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     
-    working_directory: ~/ # directory where steps will run
+    working_directory: ~/circleci-demo-java-spring # directory where steps will run
 
     docker: # run the steps with Docker
       - image: circleci/openjdk:8-jdk-browsers # ...with this image as the primary container; this is where all `steps` will run
@@ -27,4 +27,4 @@ jobs: # a collection of steps
           path: target/surefire-reports
       
       - store_artifacts: # store the uberjar as an artifact
-          path: target/demo-java-spring-0.0.1-SNAPSHOT.jar
+          path: target/diemo-java-spring-0.0.1-SNAPSHOT.jar
