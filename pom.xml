@@ -26,6 +26,16 @@
         <module>core</module>
         <module>web</module>
     </modules>
+         <distributionManagement>
+                  <repository>
+                           <id>packagecloud-examplecorp</id>
+                           <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+                  </repository>
+                  <snapshotRepository>
+                           <id>packagecloud-examplecorp</id>
+                           <url>packagecloud+https://packagecloud.io/exampleCorp/core</url>
+                  </snapshotRepository>
+         </distributionManagement> 
 
     <build>
         <pluginManagement>
